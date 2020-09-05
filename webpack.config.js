@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = [
   {
@@ -16,7 +17,21 @@ module.exports = [
     output: {
       path: __dirname + '/dist',
       filename: 'electron.js'
-    }
+    },
+    plugins: [
+      new CopyPlugin({
+        patterns: [
+          {
+            from: './package.json', to: './package.json',
+            transform: function (content, absoluteFrom) {
+              let result = JSON.parse(content.toString());
+              delete result['build']; delete result['scripts']; delete result['devDependencies'];
+              return JSON.stringify(result);
+            }
+          }
+        ]
+      })
+    ]
   },
   {
     mode: 'development',

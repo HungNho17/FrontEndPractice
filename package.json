@@ -2,12 +2,15 @@
   "name": "FrontEndPractice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "electron.js",
   "scripts": {
     "start": "electron ./dist/electron.js",
     "build": "rimraf ./dist && webpack --config ./webpack.config.js",
     "build:dev": "webpack --config ./webpack.config.js --watch",
+    "build:installer": "rimraf ./installer && electron-builder --win --x64",
     "lint": "eslint . --fix",
+    "clean": "rimraf ./dist && rimraf ./installer",
+    "clean:deep": "rimraf ./dist && rimraf node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,12 +24,27 @@
     "url": "https://github.com/HungNho17/FrontEndPractice/issues"
   },
   "homepage": "https://github.com/HungNho17/FrontEndPractice#readme",
+  "build": {
+    "appId": "electronApp",
+    "directories": {
+      "output": "./installer",
+      "app": "./dist"
+    },
+    "win": {
+      "target": "dir"
+    },
+    "nsis": {
+      "artifactName": "${productName}.${ext}"
+    }
+  },
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.0.1",
     "@typescript-eslint/parser": "^4.0.1",
+    "copy-webpack-plugin": "^6.1.0",
     "electron": "^10.1.1",
+    "electron-builder": "^22.8.0",
     "eslint": "^7.8.1",
     "eslint-plugin-react": "^7.20.6",
     "html-webpack-plugin": "^4.4.1",
