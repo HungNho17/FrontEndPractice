@@ -1,2 +1,5 @@
 node_modules
 dist
+webpack.config.js
+tsconfig.json
+.eslintrc.js
