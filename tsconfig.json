@@ -1,10 +1,12 @@
 {
- "compilerOptions": {
-   "target": "es6",
-   "module": "commonjs",
-   "jsx": "react",
-   "sourceMap": true,
-   "outDir": "./dist"
- },
- "exclude": [ "node_modules" ] 
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "sourceMap": true,
+    "outDir": "./dist"
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
