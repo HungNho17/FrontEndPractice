@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "electron src/electron.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/HungNho17/FrontEndPractice/issues"
   },
-  "homepage": "https://github.com/HungNho17/FrontEndPractice#readme"
+  "homepage": "https://github.com/HungNho17/FrontEndPractice#readme",
+  "devDependencies": {
+    "electron": "^10.1.1"
+  }
 }
